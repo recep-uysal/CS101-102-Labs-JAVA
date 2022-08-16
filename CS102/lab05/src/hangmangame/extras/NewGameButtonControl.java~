@@ -1,0 +1,43 @@
+package hangmangame.extras;
+
+import cs102.hangman.*;
+import hangmangame.extras.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+/**
+ * Hangman (Revised for Lab05 Spring 2018-19)
+ * @author david
+ */
+public class NewGameButtonControl extends JButton implements IHangmanView
+{
+   // proporties
+   Hangman hm;
+   
+   // constructors
+   public NewGameButtonControl( Hangman hangman )
+  {
+    super( "New Game" );
+    hm = hangman;
+    addActionListener( new MyActionListener2() );
+    setEnabled( false );
+  }
+   // methods
+   private class MyActionListener2 implements ActionListener
+   {
+      public void actionPerformed(ActionEvent e)
+      {
+         hm.initNewGame();
+         setEnabled( false );
+      }
+   }
+   
+   public void updateView( Hangman hangman )
+  {
+    if ( hangman.isGameOver() )
+    {
+      setEnabled(true);
+    }
+  }
+}

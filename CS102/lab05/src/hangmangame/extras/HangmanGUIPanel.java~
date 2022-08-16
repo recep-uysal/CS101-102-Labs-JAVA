@@ -1,0 +1,53 @@
+package hangmangame.extras;
+
+import cs102.hangman.HangmanModel;
+import cs102.hangman.*;
+import hangmangame.extras.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+/**
+ * Collection of UI components to form a complete Hangman game. 
+ * View components implement IHangmanView, so they can automatically update
+ * whenever the hangmanModel associated with changes, changes.
+ * Other components are hangman controllers that update the model.
+ * @author david
+ */
+public class HangmanGUIPanel extends JPanel {
+
+   HangmanModel hm;
+   
+   public HangmanGUIPanel( HangmanModel hm) 
+   {
+      this.hm = hm;
+      setPreferredSize( new Dimension( 1000, 600) );
+      setLayout( new BorderLayout() );
+
+      TextFieldControlPanel panel1;
+      panel1 = new TextFieldControlPanel( hm );
+      add( panel1, BorderLayout.PAGE_START  );
+      
+     NewGameButtonControl controlButton;
+     controlButton = new NewGameButtonControl( hm );
+     add( controlButton, BorderLayout.PAGE_END );
+     
+     LabelsHangmanView labels;
+     labels = new LabelsHangmanView();
+     add( labels, BorderLayout.WEST );
+     
+     GallowsHangmanView gallow;
+     gallow = new GallowsHangmanView( hm );
+     add( gallow, BorderLayout.CENTER );
+     
+     HangmanLetterButtonControls buttons;
+     buttons = new HangmanLetterButtonControls( hm, 13, 2 );
+     buttons.addActionListener(new HangmanLetterButtonsController( hm ));
+     add( buttons, BorderLayout.EAST );
+     
+    hm.addView( labels );
+    hm.addView( buttons );
+    hm.addView( gallow );
+    hm.addView( controlButton );
+   }
+}

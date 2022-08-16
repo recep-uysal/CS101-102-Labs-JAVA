@@ -1,0 +1,127 @@
+package hangmangame.extras;
+
+import cs102.hangman.*;
+import hangmangame.extras.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+/**
+ * Hangman (Revised for Lab05 Spring 2018-19)
+ * @author david
+ */
+public class GallowsHangmanView extends JPanel implements IHangmanView
+{
+   // proporties
+   Hangman hangman;
+   String secretWord;
+   String tries;
+   String usedWords;
+   
+   // constructors
+   public GallowsHangmanView( Hangman hangman )
+   {
+      super();
+      this.hangman = hangman;
+      setPreferredSize( new Dimension(400,200) );
+      this.setBackground(Color.YELLOW);
+      
+      secretWord = "";
+      tries = "";
+      usedWords = "";
+   }
+   
+   // methods
+   public void updateView(Hangman hangman)
+   {
+      //if the game is being played
+      if ( !hangman.isGameOver() ) 
+      {
+         secretWord = hangman.getKnownSoFar();//to display the secret word
+         tries = "Tries: " + hangman.getNumOfIncorrectTries(); //to display the number of incorrect tries
+         usedWords = "Used letters: " + hangman.getUsedLetters();//to display the words used so far
+      }
+      
+      //if the game is over then
+      else
+      {
+         //Lost message
+         if ( hangman.hasLost() )
+         {
+            secretWord = "Oops";
+            tries = "You lost!";
+            usedWords = "You used: " + hangman.getUsedLetters();
+         }
+         
+         //Won message
+         else
+         {
+            secretWord = "In " + hangman.getNumOfIncorrectTries();
+            tries = "Congratulations, you won!!";
+            usedWords = "You used: " + hangman.getUsedLetters();
+         }
+      }
+      repaint();
+   }
+   
+   @Override
+   public void paintComponent( Graphics g )
+   {
+      super.paintComponent( g );
+      
+      g.setColor( Color.BLACK );
+      g.fillRect( 20, 450, 300, 50 ) ;
+      g.fillRect( 60, 90, 20, 360 );
+      g.fillRect( 80, 90, 113, 20 );
+      g.fillRect( 187, 110, 6, 30 );
+      
+      if( hangman.getNumOfIncorrectTries() == 1 )
+      {
+         g.drawOval( 160, 140, 60, 60 );
+      }
+      
+      else if( hangman.getNumOfIncorrectTries() == 2 )
+      {
+         g.drawOval( 160, 140, 60, 60 );
+         g.drawLine( 190, 200, 190, 270 );
+      }
+      
+      else if( hangman.getNumOfIncorrectTries() == 3 )
+      {
+         g.drawOval( 160, 140, 60, 60 );
+         g.drawLine( 190, 200, 190, 270 );
+         g.drawLine( 190, 210, 140, 250 );
+      }
+      
+      else if( hangman.getNumOfIncorrectTries() == 4 )
+      {
+         g.drawOval( 160, 140, 60, 60 );
+         g.drawLine( 190, 200, 190, 270 );
+         g.drawLine( 190, 210, 140, 250 );
+         g.drawLine( 190, 210, 240, 250 );
+      }
+      
+      else if( hangman.getNumOfIncorrectTries() == 5 )
+      {
+         g.drawOval( 160, 140, 60, 60 );
+         g.drawLine( 190, 200, 190, 270 );
+         g.drawLine( 190, 210, 140, 250 );
+         g.drawLine( 190, 210, 240, 250 );
+         g.drawLine( 190, 270, 240, 320 );
+      }
+      
+      else if ( hangman.getNumOfIncorrectTries() == 6 )
+      {
+         g.drawOval( 160, 140, 60, 60 );
+         g.drawLine( 190, 200, 190, 270 );
+         g.drawLine( 190, 210, 140, 250 );
+         g.drawLine( 190, 210, 240, 250 );
+         g.drawLine( 190, 270, 240, 320 );
+         g.drawLine( 190, 270, 140, 320 );
+      }
+      
+      g.drawString(secretWord, 40, 560);
+      g.drawString(usedWords, 40, 620);
+      g.drawString(tries, 165, 400);
+   }
+}

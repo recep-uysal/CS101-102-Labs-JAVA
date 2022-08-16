@@ -1,0 +1,46 @@
+package hangmangame.extras;
+
+import cs102.hangman.*;
+import hangmangame.extras.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+/**
+ * Hangman (Revised for Lab05 Spring 2018-19)
+ * @author david
+ */
+public class TextFieldControlPanel extends JPanel
+{
+   // proporties
+   Hangman hangman;
+   JTextField text;
+   
+   // constructors
+   public TextFieldControlPanel ( Hangman h )
+   {
+      super();
+      hangman = h;
+      text = new JTextField( 50 );
+      
+      add( text ); 
+      text.addActionListener( new MyActionListener() );
+   }
+   
+   // methods
+   private class MyActionListener implements ActionListener
+   {
+      public void actionPerformed( ActionEvent e )
+      {
+         String word = text.getText();
+         
+         for ( int i = 0; i < word.length(); i++ )
+         {
+            hangman.tryThis( word.charAt( i ) );
+         }
+
+         text.setText( "" );
+      }
+      
+   }
+}
