@@ -1,0 +1,30 @@
+// Die Program
+public class Die
+{
+   // properties
+   int faceValue;
+
+   // constructors
+   
+   public Die()
+   {
+      faceValue = (int) (( 6 * Math.random()) + 1);
+   }
+
+   // methods
+   public int roll()
+   {
+      return (int) (( 6 * Math.random()) + 1);
+     
+   }
+   
+   public int getFaceValue()
+   {
+      return faceValue;
+   }
+   
+   public String toString()
+   {
+      return (" The face value is " + faceValue);
+   }
+}

@@ -1,0 +1,28 @@
+
+public class TestDie {
+   public static void main( String[] args) {
+      // VARIABLES
+      Die die1;
+      Die die2;
+      
+      // PROGRAM CODE
+      
+      die1 = new Die();
+      die2 = new Die();
+      
+      System.out.println( die1);
+      System.out.println( die2);
+      
+      System.out.println();
+      System.out.println( die1.roll());
+      System.out.println( die2.roll());
+      
+      System.out.println();
+      System.out.println( die1.getFaceValue());
+      System.out.println( die2.getFaceValue());
+      
+      System.out.println();
+      System.out.println( die1.toString());
+      System.out.println( die2.toString());
+   }
+}

@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+/**
+ * Library Program
+ * @author Recep Uysal
+ * @version 05.12.2019
+ */ 
+public class LibraryTest
+{
+   public static void main( String[] args)
+   {
+      Scanner scan = new Scanner( System.in);
+      
+      // variables
+      Library library;
+      LibraryBook book;
+      String order;
+      String order2;
+      String bookTitle;
+      String bookAuthour;
+
+      // program code
+      library = new Library();
+      
+      do{
+         System.out.println( "  In order to see all books in the library, enter \"Show\" " +
+                            "\n In order to find a book, enter \"Find\" " +
+                            "\n In order to add a book to library, enter \"Add\" " +
+                            "\n In order to exit, enter \"Exit\" " ); 
+         
+         order = scan.nextLine();
+         if ( order.equals( "Show"))
+            System.out.println( library);
+         
+         if ( order.equals( "Find") )
+         {
+            System.out.println( "Please enter the book title");
+            bookTitle = scan.nextLine();
+            if ( library.findByTitle( bookTitle) == null)
+               System.out.println( "There is not any book like that");
+            else
+            {
+               book = library.findByTitle( bookTitle);
+               do{
+                  System.out.println( "  In order to loan book, enter \"Loan\" " +
+                                     "\n In order to remove a book, enter \"Remove\" " +
+                                     "\n In order to return a book to library, enter \"Return\" " +
+                                     "\n In order to exit, enter \"Back\" " ); 
+                  
+                  order2 = scan.nextLine();
+                  
+                  if ( order2.equals( "Loan"))
+                  {  
+                     System.out.println( "Please enter a date");
+                     book.toLoan( scan.nextLine());
+                  }
+                  
+                  if ( order2.equals( "Remove"))
+                  {
+                     library.remove( book);
+                  }
+                  
+                  if ( order2.equals( "Return"))
+                  {
+                     book.bookReturned();
+                  }  
+                     
+               } while ( !order2.equals( "Back"));
+            } 
+         }
+         
+         if ( order.equals( "Add") )
+         {
+            System.out.println( "Please enter the title of book");
+            bookTitle = scan.nextLine();
+            System.out.println( "Please enter the authour of book");
+            bookAuthour = scan.nextLine();
+            
+            library.add( bookTitle, bookAuthour);
+         }
+         
+      } while ( !order.equals( "Exit"));
+      System.out.println( "Thank you for using the library program.");
+   }
+}

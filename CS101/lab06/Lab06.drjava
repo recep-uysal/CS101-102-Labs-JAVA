@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20160913-225446">
+  <project autorefresh="false" main="" root="" work="">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="Lab06.java" package="" timestamp="14-Nov-2019 11:30:33">
+        <select from="112" to="112"/>
+        <scroll column="4095" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>

@@ -1,0 +1,27 @@
+
+public class DiceGame
+{
+   // properties
+   Dice dice;
+   
+   // constructors
+   public DiceGame()
+   {
+      dice = new Dice();
+   }
+   
+   // methods
+   
+   public int play()
+   {
+      int count;
+      
+      count = 0;
+      do 
+      {
+         count++;
+      } while ( dice.roll() != 12);
+      
+      return count;   
+   }
+}

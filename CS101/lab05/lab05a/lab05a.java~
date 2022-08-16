@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+/**
+ * Rectangle Creater
+ * @author Recep Uysal
+ * @version 07.11.2019
+ */ 
+public class lab05a
+{
+   public static void main( String[] args)
+   {
+      Scanner scan = new Scanner( System.in);
+
+      // constants
+
+      // variables
+
+      // program code
+      System.out.println( "Start...");
+
+
+      System.out.println( "End.");
+   }
+
+}

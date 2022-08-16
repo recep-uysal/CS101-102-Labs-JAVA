@@ -1,0 +1,148 @@
+/**
+ * Library Class
+ * @author Recep Uysal
+ * @version 05.12.2019
+ */ 
+public class Library
+{
+   // properties
+   private LibraryBook b1;
+   private LibraryBook b2;
+   private LibraryBook b3;
+   private LibraryBook b4;
+   
+   // constructors
+   public Library()
+   {
+      b1 = null;
+      b2 = null;
+      b3 = null;
+      b4 = null;
+   }
+   
+   // methods
+   
+   /**
+    * this method shows the library is empty or not.
+    * @return shows the library empty or not.
+    */
+   public boolean isEmpty()
+   {
+      return ((b1 == null) && (b2 == null) && (b3 == null) && (b4 == null));
+   }
+   
+   /**
+    * toString shows the books in the library
+    * @return shows the books informations
+    */
+   public String toString()
+   {
+      String information;
+      information = "";
+      
+      if ( isEmpty() )
+      {
+         information = ( "The library is empty!!");
+      }
+      else
+      {
+         if ( b1 != null)
+         {
+            if ( b1.onLoan() == true )
+               information = information + ( b1.getTitle() + " Authour: " + b1.getAuthour()) + " The duedate: " + b1.getDueDate() + "\n";
+            else
+               information = information + ( b1.getTitle() + " Authour: " + b1.getAuthour()) + "\n";
+         }
+         
+         if ( b2 != null)
+         {
+            if ( b2.onLoan() == true )
+               information = information + ( b2.getTitle() + " Authour: " + b2.getAuthour()) + " The duedate: " + b2.getDueDate() + "\n";
+            else
+               information = information + ( b2.getTitle() + " Authour: " + b2.getAuthour()) + "\n";
+         }
+         
+         if ( b3 != null)
+         {
+            if ( b3.onLoan() == true )
+               information = information + ( b3.getTitle() + " Authour: " + b3.getAuthour()) + " The duedate: " + b3.getDueDate() + "\n";
+            else
+               information = information + ( b3.getTitle() + " Authour: " + b3.getAuthour()) + "\n";
+         }
+         
+         if ( b4 != null)
+         {
+            if ( b4.onLoan() == true )
+               information = information + ( b4.getTitle() + " Authour: " + b4.getAuthour()) + " The duedate: " + b4.getDueDate() + "\n";
+            else 
+               information = information + ( b4.getTitle() + " Authour: " + b4.getAuthour()) + "\n";
+         }
+      }
+      return information;
+   }
+   
+   /**
+    * add methods add a book to the library
+    * @param title is the title of the book
+    * @param authour is the authour of the book
+    */
+   public void add( String title, String authour)
+   {
+      if ( b1 == null)
+         b1 = new LibraryBook(title, authour);
+      else
+      {
+         if ( b2 == null)
+            b2 = new LibraryBook(title, authour);
+         else
+         {
+            if ( b3 == null)
+               b3 = new LibraryBook(title, authour);
+            else
+            {
+               if ( b4 == null)
+                  b4 = new LibraryBook(title, authour);
+               else
+                  System.out.println( "The library is full.");
+            }
+         }
+      }
+   }
+   
+   /**
+    * remove method delete a book from library
+    * @ param book is the book which we want to remove
+    */
+   public void remove(LibraryBook book)
+   {
+      if ( b1.equals(book))
+         b1 = null;
+      else if ( b2.equals(book))
+         b2 = null;
+      else if ( b3.equals(book))
+         b3 = null;
+      else if ( b4.equals(book))
+         b4 = null;
+      else
+         System.out.println( "There is not any book like that.");
+   }
+   
+   /**
+    * this method finds a book with a given title
+    * @param title is the title which we want to find
+    * @return the book
+    */
+   public LibraryBook findByTitle( String title)
+   {
+      if ( b1 != null && b1.getTitle().equals(title))
+         return b1;
+      else if ( b2 != null && b2.getTitle().equals(title))
+         return b2;
+      else if ( b3 != null && b3.getTitle().equals(title))
+         return b3;
+      else if ( b4 != null && b4.getTitle().equals(title))
+         return b4;
+      else
+         return null;
+   }
+}

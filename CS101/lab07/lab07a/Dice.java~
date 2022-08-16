@@ -1,0 +1,43 @@
+// Dice Program
+public class Dice
+{
+   // properties
+   Die die1;
+   Die die2;
+   
+   // constructors
+   
+   public Dice()
+   {
+      die1 = new Die();
+      die2 = new Die();
+   }
+  
+   // methods
+   
+   public int roll()
+   {
+     return (die1.roll() + die2.roll());
+   }
+   
+   public int getDie1FaceValue()
+   {
+      return die1.getFaceValue();
+   }
+   
+   public int getDie2FaceValue()
+   {
+      return die2.getFaceValue();
+   }
+   
+   public int getDiceTotal()
+   {
+      return ( die1.getFaceValue() + die2.getFaceValue());
+   }
+   
+   public String toString()
+   {
+      return ( "The value of die1 is " + die1.getFaceValue() + " the value of die2 is " + die2.getFaceValue());
+   }
+}
+   

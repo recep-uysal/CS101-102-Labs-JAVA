@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+/**
+ * Pi Program
+ * @author Recep Uysal
+ * @version 07.11.2019
+ */ 
+public class lab05d
+{
+   public static void main( String[] args)
+   {
+      Scanner scan = new Scanner( System.in);
+
+      // constants
+
+      // variables
+      double pi;
+      double pi1;
+      int number;
+      double difference;
+
+      // program code
+     
+      // 1. Enter a Number
+      number = scan.nextInt();
+      
+      // 2. Task 1
+      System.out.println( "Using the Java constant, Math.PI" );
+      pi = Math.PI;
+      System.out.println( pi );
+      
+      // 3. Task 2
+      System.out.println();
+      System.out.println( "Using the Formula" );
+      pi1 = 0;
+      for (int counter = 1; counter <= number; counter++)
+      {
+         if ( counter %  2 == 0 )
+         {
+            pi1 = pi1 - 4.0 / (2 * counter - 1);
+         }
+         else
+         {
+            pi1 = pi1 + 4.0 / (2 * counter - 1);
+         }
+      }
+      System.out.println(pi1);
+      
+      // 4. Task 3
+      System.out.println();
+      System.out.println( "The Difference" );
+      difference = Math.abs( pi1 - pi );
+      
+      if ( difference < 0.01 )
+         System.out.println( "error<0.01" );
+      else
+         System.out.println( difference );
+   }
+
+}

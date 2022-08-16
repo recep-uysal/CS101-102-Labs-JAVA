@@ -1,0 +1,62 @@
+// Library
+public class LibraryBook
+{
+   // properties
+   
+   int timesLoaned;
+   String title;
+   String authour;
+   String dueDate;
+   
+   // constructors
+   public LibraryBook( String theTitle, String theAuthour, String theDueDate, int theTimesLoaned )
+   {
+      timesLoaned = theTimesLoaned;
+      title = theTitle;
+      authour = theAuthour;
+      dueDate = theDueDate;
+   }
+   
+   // methods
+   public String toString()
+   {
+      String information;
+      
+      if ( dueDate == " ")
+         information = ( "Title of the book is " + title + ", authour of the book is " + authour + " the book is in avaliable " + " and this book loaned " + timesLoaned + " times.");
+      else
+         information = ( "Title of the book is " + title + ", authour of the book is " + authour + " the duedate is " + dueDate + " and this book loaned " + timesLoaned + " times.");
+      
+      return information;
+   }
+   
+   public int getTimesLoaned()
+   {
+      return timesLoaned;
+   }
+   
+   public void toLoan ( String dueDate )
+   {
+      if ( onLoan() )
+         System.out.println( " The book is loaned to someone else.");
+      else
+      {
+         timesLoaned++;
+         this.dueDate = dueDate;
+      }
+      
+   }
+   
+   public String bookReturned()
+   {
+      return dueDate = " ";
+   }
+   
+   public boolean onLoan()
+   {
+      if ( dueDate == " ")
+         return false;
+      else
+         return true;
+   }
+}
