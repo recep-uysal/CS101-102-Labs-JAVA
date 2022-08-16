@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+/**
+ * Flower Calculator
+ * @author Recep Uysal
+ * @version 24.10.2019
+ */ 
+public class Lab03b
+{
+   public static void main( String[] args)
+   {
+      Scanner scan = new Scanner( System.in);
+      
+      // constants
+      final int FLOWER_NUMBER=17;
+      
+      // variables
+      int side1;
+      int side2;
+      int side3;
+      double area;
+      double s;
+      int flowers;
+      
+      // program code
+      // 1. Welcome Message
+      System.out.print( "Welcome to Flower Calculator" );
+      
+      // 2. Enter the lenghts of sides
+      System.out.println( "Please enter the lenght of sides" );
+      side1 = scan.nextInt();
+      side2 = scan.nextInt();
+      side3 = scan.nextInt();
+      
+      // 3.Check the tringle
+      if ( side1>=side2+side3 || side2>=side1+side3 || side3>=side1+side2 )
+      {
+         System.out.println( "Please check the sides" );
+      }
+      else
+      {   
+         // 3. Calculation and report
+         System.out.print( "The are of the garden is " );
+         s = (( side1 + side2 + side3 ) / 2);
+         area = Math.sqrt(s * (s - side1 ) * (s - side2 ) * (s - side3));
+         System.out.println( area );
+         System.out.print( "The number of flowers is " );
+         flowers =(int) (area * FLOWER_NUMBER);
+         System.out.println( flowers );
+      }
+      
+   }
+   
+} // end class

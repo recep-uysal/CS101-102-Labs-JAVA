@@ -1,0 +1,5 @@
+The sum is 5324.0
+The count is 100.0
+The average is 53.24
+The maximum value is  98.0
+The minimum value is  -2.0
