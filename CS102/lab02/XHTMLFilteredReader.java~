@@ -1,0 +1,18 @@
+/**
+ * __program description___ 
+ * @author Recep Uysal
+ * @version 02.03.2020
+ */ 
+public class XHTMLFilteredReader extends HTMLFilteredReader {
+   
+   //proporties
+   String url;
+   
+   //constructurs
+   public XHTMLFilteredReader( String url)
+   {
+      this.url = url;
+   }
+   //methods
+   
+}

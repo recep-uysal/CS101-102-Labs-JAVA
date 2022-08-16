@@ -1,0 +1,35 @@
+import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import shapes.*;
+
+/**
+ * Circle Computer
+ * @author Recep Uysal
+ * @version 03.04.2020
+ */ 
+public class Lab04b
+{
+   public static void main( String[] args)
+   {
+      Scanner scan = new Scanner( System.in);
+      
+      // variables
+      JFrame frame;
+      BalloonsGamePanel panel;
+      
+      // program code
+      frame = new JFrame();
+      panel = new BalloonsGamePanel();
+      
+      
+      frame.add( panel );
+      
+      frame.setLayout( new FlowLayout() );
+      
+      frame.pack();
+      
+      frame.setVisible( true );
+   }
+}

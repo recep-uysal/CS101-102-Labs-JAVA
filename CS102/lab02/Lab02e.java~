@@ -1,0 +1,17 @@
+import java.util.Scanner;
+import cs1.SimpleURLReader;
+
+/**
+ * Test Program with Menu
+ * @author Recep Uysal
+ * @version 02.03.2020
+ */ 
+public class Lab02e
+{
+   public static void main( String[] args)
+   {
+      Scanner scan = new Scanner( System.in);
+
+      // constants
+
+      // variables

@@ -1,0 +1,39 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+/**
+ * My Frame
+ * @author Recep Uysal
+ * @version 30.03.2020
+ */ 
+public class MyFrame extends JFrame
+{
+   // constructors
+   public MyFrame()
+   {
+      MyPanel panel;
+      
+      panel = new MyPanel();
+      
+      addWindowListener( new MyWindowListener() );
+      
+      add( panel );
+      
+      pack();
+      
+      setLayout( new BorderLayout() );
+      
+      setVisible( true );
+   }
+   
+   // methods
+   public class MyWindowListener extends WindowAdapter
+   {
+      @Override
+      public void windowClosing( WindowEvent e )
+      {
+         dispose();
+      }
+   }
+}

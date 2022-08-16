@@ -1,0 +1,21 @@
+/**
+ * A simple Java class!
+ */
+public class Square extends Shape extends Rectangle
+{
+   // properties
+   int side;
+
+   // constructors
+   public Square( int side )
+   {
+      this.side = side;
+   }
+   
+   // methods
+   public double getArea()
+   {
+      return ( side * side );
+   }
+      
+}

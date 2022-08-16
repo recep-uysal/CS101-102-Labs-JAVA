@@ -1,0 +1,58 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import shapes.*;
+
+/**
+ * My Circle Computer Panel
+ * @author Recep Uysal
+ * @version 03.04.2020
+ */ 
+public class Balloon extends Circle implements Drawable
+{
+   // proporties
+   Graphics g;
+   
+   // constructors
+   public Balloon( int x, int y )
+   {
+      super( 25, x, y );
+   }
+   
+   public Balloon(){
+      
+      super( 25, 0,0 );
+      
+      int x;
+      int y;
+      
+      x = (int) ( 700 * Math.random() );
+      y = (int) ( 700 * Math.random() );
+      
+      this.setLocation(x,y);
+   }
+   
+   // methods
+   public boolean grow() 
+   {
+      this.radious++;
+      
+      if (this.radious >= 100) 
+      {
+         this.radious = 0;
+         this.setSelected(true);
+      }
+      
+      if(this.radious == 0)
+         return false;
+      else
+         return true;
+   }
+   
+   public void draw( Graphics g )
+   {
+      g.setColor(Color.BLACK);
+      
+      g.drawOval( this.getX() - radious, this.getY() - radious, this.radious,this.radious );   
+   }
+}

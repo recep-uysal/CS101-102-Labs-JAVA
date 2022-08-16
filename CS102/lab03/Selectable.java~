@@ -1,0 +1,15 @@
+/**
+ * A simple Java class!
+ */
+public interface Selectable
+{
+   public int getX()
+   {
+      return x;
+   }
+   
+    public int getY()
+   {
+      return y;
+   }
+}

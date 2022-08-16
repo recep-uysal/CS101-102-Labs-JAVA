@@ -1,0 +1,21 @@
+/**
+ * A simple Java class!
+ */
+public class Circle extends Shape
+{
+   // properties
+   int radious;
+
+   // constructors
+   public Rectangle( int radious )
+   {
+      this.radious = radious;
+   }
+   
+   // methods
+   public double getArea()
+   {
+      return ( 3.14 * radious * radious );
+   }
+      
+}

@@ -1,0 +1,29 @@
+import java.util.Scanner;
+import cs1.SimpleURLReader;
+
+/**
+ * __program description___ 
+ * @author Recep
+ * @version 02.03.2020
+ */ 
+public class Lab02
+{
+   public static void main( String[] args)
+   {
+      Scanner scan = new Scanner( System.in);
+
+      // constants
+
+      // variables
+      MySimpleURLReader url;
+
+      // program code
+      System.out.println( "Start...");
+      
+      url = new MySimpleURLReader( "http://www.cs.bilkent.edu.tr/~david/housman.txt");
+
+      System.out.println( url.getPageContents());
+      System.out.println( url.getLineCount());
+   }
+
+}

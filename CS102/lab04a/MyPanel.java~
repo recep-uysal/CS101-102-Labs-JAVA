@@ -1,0 +1,75 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+/**
+ * My Panel
+ * @author Recep Uysal
+ * @version 30.03.2020
+ */ 
+public class MyPanel extends JPanel
+{
+   // proporties
+   JPanel panel;
+   JLabel label;
+   JButton[] buttons;
+   JButton button;
+   int number;
+   int random;
+   boolean finish;
+   
+   // constructors
+   public MyPanel()
+   {
+      panel = new JPanel();
+      label = new JLabel();
+      button = new JButton();
+      buttons = new JButton[25];
+      number = 0;
+      random = (int) ( 25 * Math.random() );
+      finish = false;
+      
+      add( label );
+      
+      for( int k = 0; k < 25; k++)
+      {
+         button = new JButton( "Find" );
+         button.setPreferredSize(new Dimension(300, 150));
+         button.setBackground(Color.BLACK);
+         button.setForeground(Color.WHITE);
+         button.setFont(new Font("Arial", Font.PLAIN, 40));
+         buttons[k] = button;
+      }
+      
+      for( int k = 0; k < 25; k++)
+      {
+         buttons[k].addActionListener( new MyActionListener() );
+         panel.add( buttons[k] );
+      }
+      
+      add( panel );
+      
+      setLayout( new FlowLayout() );
+      panel.setLayout( new GridLayout( 5, 5 ) );
+      setVisible( true );
+   }
+   
+   // methods
+   
+   public class MyActionListener implements ActionListener
+   {
+      public void actionPerformed( ActionEvent e )
+      {
+         number++;
+         
+         if( number == random )
+            finish = true;
+         
+         if( finish == true )
+         {
+            label.setText( "You found the secret button in " + number + " try." );
+            number--;
+         }
+      }
+   }
+}

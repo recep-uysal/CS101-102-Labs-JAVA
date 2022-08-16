@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+/**
+ * IntBag 
+ * @author Recep Uysal
+ * @version 17.02.2020
+ */ 
+public class Lab01c
+{
+   public static void main( String[] args)
+   {
+      Scanner scan = new Scanner( System.in);
+
+      // constants
+
+      // variables

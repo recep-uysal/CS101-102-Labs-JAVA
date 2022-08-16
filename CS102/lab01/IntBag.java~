@@ -1,0 +1,14 @@
+/**
+ * A simple Java class!
+ */
+public class IntBag 
+{
+   // properties
+   int [] bag;
+   int valid;
+
+   // constructors
+   
+   // methods
+
+}

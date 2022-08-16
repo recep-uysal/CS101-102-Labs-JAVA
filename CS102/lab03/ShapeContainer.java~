@@ -1,0 +1,11 @@
+/**
+ * A simple Java class!
+ */
+public class ShapeContainer {
+   
+   //proporties
+   ArrayList<Shape> shapes;
+   
+   //constructurs
+   
+}

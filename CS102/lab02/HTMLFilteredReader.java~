@@ -1,0 +1,11 @@
+/**
+ * __program description___ 
+ * @author Recep Uysal
+ * @version 02.03.2020
+ */ 
+public class HTMLFilteredReader extends MySimpleURLReader {
+   
+
+
+
+}

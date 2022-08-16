@@ -1,0 +1,46 @@
+import cs1.SimpleURLReader;
+/**
+ * A simple Java class!
+ */
+public class MySimpleURLReader extends SimpleURLReader 
+{
+   // properties
+   String url2;
+   
+   // constructors
+   public MySimpleURLReader( String url )
+   {
+      super( url);
+      url2 = url;
+   }
+   // methods
+   
+   public String getURL()
+   {
+      return url2;
+   }
+   
+   public String getName()
+   {
+      int index;
+      
+      index = 0;
+      
+      for( int k = url2.length() - 1; k > 0; k--)
+      {
+         if( url2.charAt(k) == '/')
+         {
+            index = k;
+            k = -1;
+         }
+      }
+      
+     return ( url2.substring(index + 1));
+   }
+   
+   @Override
+   public String getPageContents()
+   {
+      return (super.getPageContents().substring(4));
+   }
+}

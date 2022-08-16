@@ -1,0 +1,140 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.util.Iterator;
+import java.util.ArrayList;
+import shapes.*;
+
+/**
+ * Balloons Game Panel
+ * @author Recep Uysal
+ * @version 06.04.2020
+ */ 
+public class BalloonsGamePanel extends JPanel
+{
+   // proporties
+   JLabel label;
+   ShapeContainer balloons;
+   MyMouseListener mouse;
+   Graphics g;
+   Timer time;
+   int points;
+   int elapsedTime;
+   
+   // constructors
+   public BalloonsGamePanel()
+   {
+      balloons = new ShapeContainer();
+      label = new JLabel( "Points: " + points );
+      mouse = new MyMouseListener();
+      Iterator it;
+      
+      it = balloons.iterator();
+      setPreferredSize( new Dimension( 700, 700 ) );
+      
+      for( int i = 0; i < 25; i++)
+      {
+         balloons.addShape( new Balloon() );
+      }
+      
+      time = new Timer ( 100, new MyActionListener() );
+      time.start();
+      
+      addMouseListener( mouse );
+      
+      add( label );
+   }
+   
+   // methods
+   
+   @Override
+   public void paintComponent( Graphics g)
+   {
+      super.paintComponent( g );
+      Iterator group;
+      
+      group = balloons.iterator();
+      
+      setBackground(Color.yellow);
+      
+      while( group.hasNext() )
+      {
+         ((Drawable)( group.next() ) ).draw( g );
+      }
+   }
+   
+   private class MyMouseListener extends MouseAdapter
+   {
+      public void mousePressed (MouseEvent event)
+      {
+         int x;
+         int y;
+         int selected;
+         
+         x = event.getX();
+         y = event.getY();
+         
+         selected = balloons.selectAllAt( x,y );
+         points = points + selected;
+         balloons.remove();
+         
+         repaint();
+         
+         label.setText("Points: " + points );
+         
+      }
+   }
+   
+   private class MyActionListener implements ActionListener
+   {
+      
+      public void actionPerformed( ActionEvent e ){
+         
+         Iterator itr;
+         itr = balloons.iterator();
+         
+         while( itr.hasNext() )
+         {
+            ( (Balloon) itr.next() ).grow();
+         }
+         
+         balloons.remove();
+         if( balloons.size() < 25 )
+         {
+            for( int k = 0; k < 25 - balloons.size(); k++ )
+            {
+               balloons.addShape( new Balloon() );
+            }
+         }
+         
+         elapsedTime++;
+         label.setText( "Points: " + points );
+         repaint();
+         
+         if( elapsedTime >= 200 )
+         {
+            time.stop();
+            removeMouseListener( mouse );
+            
+            int selection;
+            selection = JOptionPane.showConfirmDialog(BalloonsGamePanel.this, "Play Again?" , "Game Over", 0);
+            
+            if( selection == JOptionPane.YES_OPTION )
+            {
+               elapsedTime = 0;
+               points = 0;
+               time.start();
+               addMouseListener( mouse );
+               label.setText( "Points: " + points );
+            }
+            else if( selection == JOptionPane.NO_OPTION )
+            {
+               System.exit(0);
+            } 
+         }
+      }
+   }
+}
+
+   
+ 
