@@ -1,1 +1,1 @@
-# CS101-2-Labs-JAVA-
+# CS101-102 Labs JAVA
